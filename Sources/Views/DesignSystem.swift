@@ -1,9 +1,9 @@
-//  DesignSystem.swift — TurboMix v11
+//  DesignSystem.swift — TurboMix v1.0
 //
 //  2025-2026 现代 macOS 原生设计风格
 //  Liquid Glass + 原生色彩 + 精确间距
 //
-//  v11：清理重复的 systemRed 定义（删除覆盖系统原生的 Color.systemRed 扩展，
+//  v1.0：清理重复的 systemRed 定义（删除覆盖系统原生的 Color.systemRed 扩展，
 //       统一用 DS.systemRed，避免混淆）
 
 import SwiftUI

@@ -10,7 +10,7 @@
 [![SwiftUI](https://img.shields.io/badge/SwiftUI-native-blue?logo=swift&logoColor=white)](https://developer.apple.com/documentation/swiftui)
 [![FFmpeg](https://img.shields.io/badge/FFmpeg-bundled-purple?logo=ffmpeg&logoColor=white)](https://ffmpeg.org/)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
-[![Release](https://img.shields.io/badge/release-v11.0-brightgreen?logo=github)](../../releases)
+[![Release](https://img.shields.io/badge/release-v1.0-brightgreen?logo=github)](../../releases)
 [![Portability](https://img.shields.io/badge/portability-U%20disk%20ready-teal)](#可移植性)
 
 **拖放视频 → 一键混剪 → 自带 FFmpeg，U 盘拷走即用**
@@ -67,7 +67,7 @@
 ### 方式 1：下载预构建版本（推荐）
 
 1. 前往 [Releases](../../releases) 页面
-2. 下载 `TurboMix.app.zip` 或 `TurboMix-v11.0.dmg`
+2. 下载 `TurboMix.app.zip` 或 `TurboMix-v1.0.dmg`
 3. 解压后拖入 `/Applications`
 4. 首次启动若被 Gatekeeper 拦截：
    - 「系统设置」→「隐私与安全性」→ 点击「仍要打开」
@@ -217,19 +217,19 @@ swift build
 # 构建并生成可分发的 zip
 ./build.sh
 cd ~/Desktop
-zip -r TurboMix-v11.0.app.zip TurboMix.app
+zip -r TurboMix-v1.0.app.zip TurboMix.app
 ```
 
 或创建 DMG：
 
 ```bash
 hdiutil create -volname "TurboMix" -srcfolder ~/Desktop/TurboMix.app \
-    -ov -format UDZO TurboMix-v11.0.dmg
+    -ov -format UDZO TurboMix-v1.0.dmg
 ```
 
 ## 📝 更新日志
 
-### v11.0 (2026-07-27)
+### v1.0 (2026-07-27)
 
 - ✨ 全新 Liquid Glass 设计风格
 - 🐛 修复 inputs.txt 误删导致混剪失败的致命 bug

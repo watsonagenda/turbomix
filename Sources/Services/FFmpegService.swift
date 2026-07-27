@@ -1,8 +1,8 @@
-//  FFmpegService.swift — TurboMix v11
+//  FFmpegService.swift — TurboMix v1.0
 //
 //  核心引擎：ffprobe 分析 + ffmpeg concat 混剪
 //
-//  v11 修复：
+//  v1.0 修复：
 //  - 修复 inputs.txt 在 ffmpeg 执行前被误删的致命 bug
 //  - 进度条改用 readabilityHandler 异步读取，实时更新
 //  - 重写 buildFilterChain，修正 pad 居中、blur 背景逻辑

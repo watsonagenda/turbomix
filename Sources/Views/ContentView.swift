@@ -1,11 +1,11 @@
-//  ContentView.swift — TurboMix v11
+//  ContentView.swift — TurboMix v1.0
 //
 //  核心修复：
 //  - 文件添加：使用 NSOpenPanel.begin(completionHandler:) 替代 runModal
 //  - 拖放修复：直接在 NSView 层处理 URL 提取
 //  - 性能优化：probe 并发限制 + 拖放防抖（取消旧 Task）
 //  - UI 现代化：Liquid Glass 效果 + 原生 macOS 风格 + 简体中文
-//  - v11：添加取消按钮、错误信息多行展示、滑块范围修正
+//  - v1.0：添加取消按钮、错误信息多行展示、滑块范围修正
 
 import SwiftUI
 import UniformTypeIdentifiers

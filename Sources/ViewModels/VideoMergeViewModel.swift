@@ -1,9 +1,9 @@
-//  VideoMergeViewModel.swift — TurboMix v11
+//  VideoMergeViewModel.swift — TurboMix v1.0
 //
 //  UI层与服务层的桥梁
 //  管理所有状态、处理用户交互、驱动混剪流程
 //
-//  v11 修复：
+//  v1.0 修复：
 //  - 添加取消功能（mergeTask + FFmpegService.cancel）
 //  - 改进错误提示（保留多行 stderr）
 //  - 撤销栈支持连续撤销，不再清空

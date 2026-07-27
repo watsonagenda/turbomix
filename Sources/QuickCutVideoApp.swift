@@ -1,4 +1,4 @@
-//  QuickCutVideoApp.swift — TurboMix v11
+//  QuickCutVideoApp.swift — TurboMix v1.0
 //
 //  macOS 应用入口
 //  纯中文界面
@@ -23,7 +23,7 @@ struct TurboMixApp: App {
                     NSApplication.shared.orderFrontStandardAboutPanel(
                         options: [
                             .applicationName: "TurboMix",
-                            .applicationVersion: "11.0",
+                            .applicationVersion: "1.0",
                             .credits: NSAttributedString(
                                 string: "基于 FFmpeg 的智能视频混剪工具\n简体中文版 · 现代 macOS 原生设计\n支持 Liquid Glass 效果",
                                 attributes: [

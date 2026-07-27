@@ -21,7 +21,7 @@ APP_NAME="TurboMix"
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 BUILD_DIR="$PROJECT_DIR/.build"
 APP_BUNDLE="$BUILD_DIR/$APP_NAME.app"
-VERSION="11.0"
+VERSION="1.0"
 SOURCE_INFO_PLIST="$PROJECT_DIR/Sources/Resources/Info.plist"
 ENTITLEMENTS="$PROJECT_DIR/Resources/TurboMix.entitlements"
 
