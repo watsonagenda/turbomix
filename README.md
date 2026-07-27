@@ -64,14 +64,17 @@
 
 ## 🚀 安装
 
-### 方式 1：下载预构建版本（推荐）
+### 方式 1：下载 DMG 安装（推荐）
 
 1. 前往 [Releases](../../releases) 页面
-2. 下载 `TurboMix.app.zip` 或 `TurboMix-v1.0.dmg`
-3. 解压后拖入 `/Applications`
-4. 首次启动若被 Gatekeeper 拦截：
-   - 「系统设置」→「隐私与安全性」→ 点击「仍要打开」
-   - 或终端执行：`xattr -dr com.apple.quarantine /Applications/TurboMix.app`
+2. 下载 `TurboMix-v1.0.dmg`
+3. 双击挂载 DMG
+4. **把 TurboMix.app 拖到右侧的 Applications 文件夹**
+5. 在启动台或 `/Applications` 中找到 TurboMix，双击运行
+
+首次启动若被 Gatekeeper 拦截：
+- 「系统设置」→「隐私与安全性」→ 点击「仍要打开」
+- 或终端执行：`xattr -dr com.apple.quarantine /Applications/TurboMix.app`
 
 ### 方式 2：从源码构建
 
@@ -214,18 +217,14 @@ swift build
 ## 📦 打包发布
 
 ```bash
-# 构建并生成可分发的 zip
+# 1. 构建 .app
 ./build.sh
-cd ~/Desktop
-zip -r TurboMix-v1.0.app.zip TurboMix.app
+
+# 2. 生成带 Applications 快捷方式的 DMG（支持拖放安装）
+./scripts/create_dmg.sh
 ```
 
-或创建 DMG：
-
-```bash
-hdiutil create -volname "TurboMix" -srcfolder ~/Desktop/TurboMix.app \
-    -ov -format UDZO TurboMix-v1.0.dmg
-```
+生成的 `TurboMix-v1.0.dmg` 可直接分发给最终用户。
 
 ## 📝 更新日志
 
