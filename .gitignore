@@ -1,0 +1,64 @@
+# Build artifacts
+.build/
+DerivedData/
+*.xcuserdata
+
+# macOS
+.DS_Store
+*.swp
+*~
+
+# IDE
+.vscode/
+.idea/
+
+# Generated icons
+TurboMix.iconset/
+TurboMix.icns
+TurboMix-LiquidGlass.png
+Turbo Max.iconset/
+Turbo Max.icns
+TurboMax-LiquidGlass.png
+generate_turbo_mix_icon.py
+generate_turbo_max_icon.py
+replace_turbo_max_icon.py
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# DMG packages
+TurboMix-v*.dmg
+
+# === TurboMix 项目补充 ===
+
+# 构建产物（.app 不入库，通过 Release 分发）
+*.app
+*.dmg
+*.zip
+build/
+_output/
+dist/
+
+# 本地配置
+.env
+.env.local
+
+# Xcode
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+
+# SwiftPM
+.swiftpm/
+Package.resolved
+
+# 临时文件
+*.tmp
+*.log
+tmp/
+
+# 桌面部署副本（避免误提交）
+~/Desktop/TurboMix.app
