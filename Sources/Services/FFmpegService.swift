@@ -50,6 +50,11 @@ final class FFmpegService {
         return "ffmpeg"
     }
 
+    /// 内置的 ffmpeg 是否存在（用于启动自检时区分「损坏」与「未打包」）
+    func hasBundledFFmpeg() -> Bool {
+        FileManager.default.fileExists(atPath: "\(bundleMacOSPath)/ffmpeg")
+    }
+
     private var ffprobePath: String {
         let bundledPath = "\(bundleMacOSPath)/ffprobe"
         if FileManager.default.fileExists(atPath: bundledPath) {

@@ -24,7 +24,7 @@
 | 特性 | 说明 |
 |------|------|
 | 🎬 **智能混剪** | 自动打乱素材顺序，Fisher-Yates 洗牌算法确保每次结果不同 |
-| 🖥️ **原生设计** | SwiftUI + Liquid Glass 风格，适配现代 macOS 外观 |
+| 🖥️ **原生设计** | SwiftUI + Apple HIG 原生设计，适配现代 macOS 外观 |
 | 📱 **多比例支持** | 16:9 / 9:16 / 1:1 / 4:3 / 2:3 等主流比例 |
 | 🎵 **音频控制** | 可选择保留或去除原始音频 |
 | 📊 **实时进度** | 解析 ffmpeg stderr 实时更新进度条 |
@@ -163,7 +163,7 @@ TurboMix/
 │   │   └── VideoMergeViewModel.swift       # 视图模型
 │   ├── Views/
 │   │   ├── ContentView.swift               # 主界面
-│   │   ├── DesignSystem.swift              # 设计规范（Liquid Glass）
+│   │   ├── DesignSystem.swift              # 设计规范（Apple HIG 令牌）
 │   │   └── DropZoneView.swift              # 拖放区域
 │   └── Resources/
 │       └── Info.plist                      # 应用配置
@@ -187,7 +187,7 @@ TurboMix/
 | 语言 | Swift 5.9+ |
 | UI 框架 | SwiftUI + AppKit + Combine |
 | 视频处理 | FFmpeg 8.1.2（动态库捆绑） |
-| 设计风格 | Liquid Glass + 原生 macOS |
+| 设计风格 | Apple HIG + 原生 macOS |
 | 包管理 | Swift Package Manager |
 | 构建 | shell + swiftc 直接编译 |
 
@@ -230,7 +230,7 @@ swift build
 
 ### v1.0 (2026-07-27)
 
-- ✨ 全新 Liquid Glass 设计风格
+- ✨ 全新 Apple HIG 原生设计风格
 - 🐛 修复 inputs.txt 误删导致混剪失败的致命 bug
 - 🐛 修复进度条不更新、pad 居中错误等问题
 - 🔌 实现完整可移植性（FFmpeg + 17 个 dylib 自包含）

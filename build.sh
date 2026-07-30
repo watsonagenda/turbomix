@@ -137,8 +137,7 @@ echo "[4/7] 打包 FFmpeg 及动态库依赖..."
 
 # 查找 ffmpeg / ffprobe：依次尝试
 #   1. 环境变量 FFMPEG_BIN_DIR 指定的目录
-#   2. 系统 PATH
-#   3. TRAE SOLO CN 自带工具目录（开发者环境兜底）
+#   2. 系统 PATH（Homebrew 等）
 MACOS_DIR="$APP_BUNDLE/Contents/MacOS"
 
 FFMPEG_PATH=""
@@ -148,7 +147,6 @@ FFPROBE_PATH=""
 FFMPEG_CANDIDATE_DIRS=(
     "${FFMPEG_BIN_DIR:-}"
     "$(dirname "$(which ffmpeg 2>/dev/null)" 2>/dev/null)"
-    "$HOME/Library/Application Support/TRAE SOLO CN/ModularData/ai-agent/vm/tools/opt/ffmpeg/8.1.2/bin"
     "/opt/homebrew/bin"
     "/usr/local/bin"
 )

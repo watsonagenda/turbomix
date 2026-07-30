@@ -1,10 +1,11 @@
-//  DesignSystem.swift — TurboMix v1.0
+//  DesignSystem.swift — TurboMix
 //
-//  2025-2026 现代 macOS 原生设计风格
-//  Liquid Glass + 原生色彩 + 精确间距
-//
-//  v1.0：清理重复的 systemRed 定义（删除覆盖系统原生的 Color.systemRed 扩展，
-//       统一用 DS.systemRed，避免混淆）
+//  Apple HIG 原生设计令牌
+//  设计原则：克制 · 清晰 · 留白
+//  - 边框（hairline）定义卡片边界，而非渐变或厚阴影
+//  - 阴影仅用于「浮起」的瞬时态（拖放区、进度提示）
+//  - 颜色锚定 macOS 系统色，自动适配明暗模式
+//  - 主按钮使用纯色 System Blue（Apple 主 CTA 规范）
 
 import SwiftUI
 
@@ -40,34 +41,35 @@ extension Color {
 
 enum DS {
 
-    // MARK: 🎨 色彩系统
+    // MARK: 🎨 色彩系统 — Apple 系统色
 
-    static let accent = Color(hex: "#007AFF")
-    static let accentSecondary = Color(hex: "#5856D6")
-    static let accentTertiary = Color(hex: "#AF52DE")
+    static let accent          = Color(hex: "#007AFF")   // System Blue
+    static let accentSecondary = Color(hex: "#5856D6")   // Indigo
+    static let accentTertiary  = Color(hex: "#AF52DE")   // Purple
 
-    static let systemGreen  = Color(hex: "#30D158")
-    static let systemOrange = Color(hex: "#FF9F0A")
-    static let systemRed    = Color(hex: "#FF453A")
-    static let systemYellow = Color(hex: "#FFD60A")
-    static let systemTeal   = Color(hex: "#64D2FF")
+    static let systemGreen  = Color(hex: "#34C759")
+    static let systemOrange = Color(hex: "#FF9500")
+    static let systemRed    = Color(hex: "#FF3B30")
+    static let systemYellow = Color(hex: "#FFCC00")
+    static let systemTeal   = Color(hex: "#30B0C7")
     static let systemPurple = Color(hex: "#BF5AF2")
 
-    static let textPrimary   = Color(NSColor.labelColor)
-    static let textSecondary = Color(NSColor.secondaryLabelColor)
-    static let textTertiary  = Color(NSColor.tertiaryLabelColor)
+    // 文本 — 系统 label 色（自适应明暗）
+    static let textPrimary    = Color(NSColor.labelColor)
+    static let textSecondary  = Color(NSColor.secondaryLabelColor)
+    static let textTertiary   = Color(NSColor.tertiaryLabelColor)
     static let textQuaternary = Color(NSColor.quaternaryLabelColor)
 
-    static let background       = Color(NSColor.windowBackgroundColor)
-    static let secondaryBackground = Color(NSColor.underPageBackgroundColor)
-    static let groupedBackground   = Color(NSColor.controlBackgroundColor)
+    // 背景与表面
+    static let background         = Color(NSColor.windowBackgroundColor)
+    static let groupedBackground  = Color(NSColor.underPageBackgroundColor)
+    static let controlBackground  = Color(NSColor.controlBackgroundColor)
+    static let surface            = Color(NSColor.textBackgroundColor)
 
-    static let surface = Color(.white).opacity(0.72)
-    static let surfaceHover = Color(.white).opacity(0.85)
-    static let surfaceSelected = Color(hex: "#007AFF").opacity(0.12)
-
-    static let border      = Color(NSColor.separatorColor).opacity(0.5)
-    static let borderLight = Color(NSColor.separatorColor).opacity(0.25)
+    // 分隔与边框 —— Apple 的 hairline
+    static let separator   = Color(NSColor.separatorColor)
+    static let border      = Color(NSColor.separatorColor).opacity(0.55)
+    static let borderLight = Color(NSColor.separatorColor).opacity(0.3)
 
     // MARK: 📐 间距系统
 
@@ -79,63 +81,87 @@ enum DS {
     static let spXL:  CGFloat = 20
     static let sp2XL: CGFloat = 24
     static let sp3XL: CGFloat = 32
-    static let sp4XL: CGFloat = 48
-    static let sp5XL: CGFloat = 64
+    static let sp4XL: CGFloat = 44
+    static let sp5XL: CGFloat = 60
 
     // MARK: ⭕ 圆角
 
-    static let radiusSM: CGFloat = 6
-    static let radiusMD: CGFloat = 10
-    static let radiusLG: CGFloat = 12
-    static let radiusXL: CGFloat = 16
-    static let radius2XL: CGFloat = 20
+    static let radiusSM:  CGFloat = 6
+    static let radiusMD:  CGFloat = 8
+    static let radiusLG:  CGFloat = 10
+    static let radiusXL:  CGFloat = 14
+    static let radius2XL: CGFloat = 18
     static let radiusFull = CGFloat.infinity
 
     // MARK: 🔤 字体层级 — SF Pro
 
-    static let appName: Font = .system(size: 22, weight: .bold, design: .default)
-    static let heading: Font = .system(size: 17, weight: .bold)
-    static let sectionTitle: Font = .system(size: 15, weight: .semibold)
-    static let body: Font = .system(size: 14, weight: .regular)
-    static let bodyMedium: Font = .system(size: 14, weight: .medium)
-    static let caption: Font = .system(size: 13, weight: .regular)
-    static let captionMedium: Font = .system(size: 13, weight: .medium)
-    static let micro: Font = .system(size: 11, weight: .medium, design: .monospaced)
+    static let appName:       Font = .system(size: 15, weight: .semibold)
+    static let largeTitle:    Font = .system(size: 26, weight: .bold)
+    static let title:         Font = .system(size: 17, weight: .semibold)
+    static let sectionTitle:  Font = .system(size: 13, weight: .semibold)
+    static let body:          Font = .system(size: 13)
+    static let bodyMedium:    Font = .system(size: 13, weight: .medium)
+    static let caption:       Font = .system(size: 12)
+    static let captionMedium: Font = .system(size: 12, weight: .medium)
+    static let micro:         Font = .system(size: 11, weight: .regular, design: .monospaced)
 
     // MARK: ✨ 动画
 
-    static let spring: Animation = .spring(response: 0.35, dampingFraction: 0.7, blendDuration: 0)
-    static let snappy: Animation = .spring(response: 0.25, dampingFraction: 0.8, blendDuration: 0)
-    static let smooth: Animation = .easeInOut(duration: 0.3)
+    static let spring:  Animation = .spring(response: 0.35, dampingFraction: 0.78, blendDuration: 0)
+    static let snappy:  Animation = .spring(response: 0.25, dampingFraction: 0.85, blendDuration: 0)
+    static let smooth:  Animation = .easeInOut(duration: 0.3)
     static let easeOut: Animation = .easeOut(duration: 0.2)
 
-    // MARK: 🪟 Liquid Glass 效果
+    // MARK: 🪟 表面 —— 边框定义边界
 
-    static var glassPanel: some View {
-        RoundedRectangle(cornerRadius: radiusLG)
-            .fill(.ultraThinMaterial)
+    /// 标准卡片：克制 hairline 边框，无阴影（Apple 设置面板风格）
+    static var cardBackground: some View {
+        RoundedRectangle(cornerRadius: radiusLG, style: .continuous)
+            .fill(Color(NSColor.controlBackgroundColor))
             .overlay(
-                RoundedRectangle(cornerRadius: radiusLG)
-                    .strokeBorder(Color.white.opacity(0.4), lineWidth: 0.75)
+                RoundedRectangle(cornerRadius: radiusLG, style: .continuous)
+                    .strokeBorder(Color(NSColor.separatorColor).opacity(0.5), lineWidth: 1)
             )
     }
 
-    static var glassCard: some View {
-        RoundedRectangle(cornerRadius: radiusLG)
-            .fill(.thinMaterial)
+    /// 浮起卡片：用于瞬时状态（进度 / 完成），轻微阴影
+    static var cardElevated: some View {
+        RoundedRectangle(cornerRadius: radiusLG, style: .continuous)
+            .fill(Color(NSColor.controlBackgroundColor))
             .overlay(
-                RoundedRectangle(cornerRadius: radiusLG)
-                    .strokeBorder(Color.white.opacity(0.35), lineWidth: 0.5)
+                RoundedRectangle(cornerRadius: radiusLG, style: .continuous)
+                    .strokeBorder(Color(NSColor.separatorColor).opacity(0.5), lineWidth: 1)
             )
-            .shadow(color: .black.opacity(0.06), radius: 10, x: 0, y: 3)
+            .shadow(color: .black.opacity(0.06), radius: 12, x: 0, y: 4)
     }
 
-    static var glassLight: some View {
-        RoundedRectangle(cornerRadius: radiusMD)
-            .fill(.ultraThinMaterial.opacity(0.6))
-            .overlay(
-                RoundedRectangle(cornerRadius: radiusMD)
-                    .strokeBorder(Color.white.opacity(0.3), lineWidth: 0.5)
-            )
+    // 旧名兼容
+    static var glassCard:  some View { cardBackground }
+    static var glassPanel: some View { cardBackground }
+    static var glassLight: some View { cardBackground }
+}
+
+// MARK: - 卡片样式修饰器
+
+struct CardStyleModifier: ViewModifier {
+    var elevated: Bool = false
+
+    func body(content: Content) -> some View {
+        content
+            .padding(DS.spLG)
+            .background {
+                if elevated {
+                    DS.cardElevated
+                } else {
+                    DS.cardBackground
+                }
+            }
+    }
+}
+
+extension View {
+    /// 应用 Apple 风格卡片：hairline 边框 + 内边距
+    func cardStyle(elevated: Bool = false) -> some View {
+        modifier(CardStyleModifier(elevated: elevated))
     }
 }

@@ -418,7 +418,7 @@ def collect_deps(macos_dir, source_bin_dir=None):
                 print(f"    ✗ 残留 Homebrew 路径: {os.path.basename(b)} -> {dep}")
                 bad += 1
                 continue
-            # 其它绝对路径（例如 TRAE tools 目录）：危险
+            # 其它绝对路径（外部工具目录）：危险
             if os.path.isabs(dep):
                 print(f"    ✗ 残留外部路径: {os.path.basename(b)} -> {dep}")
                 bad += 1
